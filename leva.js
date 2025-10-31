@@ -13,7 +13,7 @@ async function buscarLink() {
   if (!id) return console.log("Nenhum ID encontrado na URL.");
 
   const { data, error } = await db
-  .from("sites")
+  .from("links")
   .select("url")
   .eq("id", id)
   .eq("ativo", true)   // só pega links ativos
