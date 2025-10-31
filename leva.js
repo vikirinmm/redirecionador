@@ -15,6 +15,7 @@ async function buscarLink() {
     .from("links")
     .select("url")
     .eq("id", id)
+    .eq("ativo", true)
     .maybeSingle();
 
   if (!data) {
