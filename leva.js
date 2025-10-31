@@ -13,10 +13,12 @@ async function buscarLink() {
   if (!id) return console.log("Nenhum ID encontrado na URL.");
 
   const { data, error } = await db
-    .from("links")      // Nome da sua tabela
-    .select("url")      // Campo com o link de destino
-    .eq("id", id)       // Onde id = o número da URL
-    .single();
+  .from("sites")
+  .select("url")
+  .eq("id", id)
+  .eq("ativo", true)   // só pega links ativos
+  .maybeSingle();
+
 
   if (error || !data) {
     console.error("Erro ou link não encontrado:", error);
