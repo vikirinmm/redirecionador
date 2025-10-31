@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff;
+  margin: 0;
+}
+
+/* Loader circular */
+.loader {
+  width: 80px;
+  height: 80px;
+  border: 8px solid #ccc;     /* parte "clara" do círculo */
+  border-top-color: #000;     /* parte escura que gira */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animação de rotação */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
