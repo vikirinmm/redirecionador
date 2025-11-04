@@ -37,7 +37,7 @@ async function buscarLink() {
   // Aguarda um pouco para garantir que o evento seja enviado
   setTimeout(() => {
     window.location.href = data.url;
-  }, 500);
+  }, 5000);
 }
 
 buscarLink();
