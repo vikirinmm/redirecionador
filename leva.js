@@ -30,7 +30,10 @@ async function buscarLink() {
   console.log("🟢 Disparando evento de conversão e redirecionando...");
 
   if (typeof gtag_report_conversion === "function") {
-    gtag_report_conversion(destino);
+    setTimeout(() => {
+  gtag_report_conversion(destino);
+}, 20000);
+
   } else {
     console.warn("⚠️ gtag_report_conversion não está disponível. Redirecionando manualmente...");
     window.location.href = destino;
