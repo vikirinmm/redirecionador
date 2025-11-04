@@ -42,7 +42,7 @@ async function buscarLink() {
     } else {
       console.log("⌛ Aguardando o carregamento do gtag...");
     }
-  }, 500);
+  }, 2000);
 }
 
 buscarLink();
