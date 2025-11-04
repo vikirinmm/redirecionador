@@ -25,24 +25,16 @@ async function buscarLink() {
     return;
   }
 
-  // Espera o gtag carregar antes de disparar o evento
-  const checkGtag = setInterval(() => {
-    if (typeof gtag === "function") {
-      clearInterval(checkGtag);
-      console.log("🟢 Disparando evento de conversão do Google Ads...");
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17644203223/D5QkCPKP-a8bENfZtN1B',
-        'value': 1.0,
-        'currency': 'BRL'
-      });
+  const destino = data.url;
 
-      setTimeout(() => {
-        window.location.href = data.url;
-      }, 5000); // aguarda 5s antes de redirecionar
-    } else {
-      console.log("⌛ Aguardando o carregamento do gtag...");
-    }
-  }, 2000);
+  console.log("🟢 Disparando evento de conversão e redirecionando...");
+
+  if (typeof gtag_report_conversion === "function") {
+    gtag_report_conversion(destino);
+  } else {
+    console.warn("⚠️ gtag_report_conversion não está disponível. Redirecionando manualmente...");
+    window.location.href = destino;
+  }
 }
 
 buscarLink();
