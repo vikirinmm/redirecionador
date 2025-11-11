@@ -32,7 +32,7 @@ async function buscarLink() {
   if (typeof gtag_report_conversion === "function") {
     setTimeout(() => {
   gtag_report_conversion(destino);
-}, 5000);
+}, 500);
 
   } else {
     console.warn("⚠️ gtag_report_conversion não está disponível. Redirecionando manualmente...");
